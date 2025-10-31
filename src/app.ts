@@ -27,14 +27,16 @@ class App {
 
   private registerModules() {
     this.app.use(express.json());
-    // this.app.use(routes.app); // Register your main app routes
-    // this.app.use(routes.health); // Register health check routes
     this.app.use(`${RouteVersion.v1}/merchant`, routes.merchant);
     this.app.use(`${RouteVersion.v1}/user`, routes.user);
     this.app.use(`${RouteVersion.v1}/login`, routes.login);
     this.app.use(`${RouteVersion.v1}/upload`, routes.upload);
     this.app.use(`${RouteVersion.v1}/product`, routes.product);
     this.app.use(`${RouteVersion.v1}/order`, routes.order);
+
+    this.app.get("/", (req, res) => {
+      res.status(200).json({ message: "Grundy LLC API is running successfully 🚀" });
+    });
   }
 
   public getInstance() {

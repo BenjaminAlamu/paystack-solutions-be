@@ -1,0 +1,59 @@
+{
+  "name": "node-starter-v2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "nodemon",
+    "start": "node dist/server.js",
+    "build": "tsc",
+    "postbuild": "copyfiles -u 1 \"src/**/*.yaml\" dist",
+    "prepare": "husky install",
+    "test": "NODE_ENV=test jest --runInBand --passWithNoTests",
+    "lint": "eslint --ignore-path .eslintignore --ext .ts .",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "knex": "ts-node -r dotenv/config ./node_modules/knex/bin/cli.js",
+    "db:migrate:make": "npm run knex -- migrate:make",
+    "db:migrate": "npm run knex -- migrate:latest",
+    "db:migrate:rollback": "npm run knex -- migrate:rollback",
+    "db:seed": "npm run knex -- seed:run"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cloudinary": "^2.8.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "http": "^0.0.1-security",
+    "http-status": "^2.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "knex": "^3.1.0",
+    "module-alias": "^2.2.3",
+    "multer": "^2.0.2",
+    "objection": "^3.1.5",
+    "pg": "^8.16.3",
+    "pino": "^10.1.0",
+    "reflect-metadata": "^0.2.2",
+    "tsyringe": "^4.10.0",
+    "uuid": "^9.0.1",
+    "validatorjs": "^3.22.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.4",
+    "@types/node": "^24.9.1",
+    "@types/uuid": "^9.0.8",
+    "@types/validatorjs": "^3.15.5",
+    "copyfiles": "^2.4.1",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0"
+  },
+  "_moduleAliases": {
+    "@config": "dist/config",
+    "@shared": "dist/shared",
+    "@utils": "dist/shared/utils"
+  }
+}

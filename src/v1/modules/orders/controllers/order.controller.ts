@@ -64,7 +64,7 @@ class OrderController {
       throw new NotFoundError("Order not found.");
     }
   
-    await new Promise((resolve) => setTimeout(resolve, 5000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
   
     const data = await this.orderService.mockCallback(code);
   

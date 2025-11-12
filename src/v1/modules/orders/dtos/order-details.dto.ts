@@ -7,6 +7,7 @@ export type CreatePaymentDetailsDto = {
     reference: string;
     authorization_url?: string;
     offline_reference?: string;
+    split_code?: string;
   };
 
   export type AttachVirtualAccountDto = {

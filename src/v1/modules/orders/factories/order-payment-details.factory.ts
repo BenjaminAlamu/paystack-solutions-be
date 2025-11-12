@@ -11,6 +11,7 @@ class OrderPaymentDetailsFactory {
     orderDetails.status = OrderPaymentStatus.PENDING;
     orderDetails.authorization_url = data.authorization_url || "";
     orderDetails.offline_reference = data.offline_reference  || "";
+    orderDetails.split_code = data.split_code  || "";
     orderDetails.paymentReference = data.reference;
     return orderDetails;
   }

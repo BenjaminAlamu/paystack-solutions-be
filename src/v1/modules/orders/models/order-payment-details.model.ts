@@ -21,6 +21,7 @@ export class OrderPaymentDetails extends Model {
   authorization_url?: string;
   offline_reference?: string;
   account_number?: string;
+  split_code?: string;
   bank_name?: string;
 
   order!: Order;

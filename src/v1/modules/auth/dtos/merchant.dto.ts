@@ -37,7 +37,7 @@ export type PaystackSubaccountDto = {
       share: number;
     }[];
     bearer_type: 'subaccount' | 'account' | 'all'; 
-    bearer_subaccount: string;
+    bearer_subaccount?: string;
   };
 
 
@@ -48,9 +48,11 @@ export type PaystackSubaccountDto = {
   export type PaystackInitiateTransactionDto = {
     email: string;
     amount: number;
-    subaccount: string;
+    split_code: string;
     metadata: {
-      orderRef: string
+      orderRef: string,
+      splitCode: string,
+      paystackFee: number;
     }
   };
 
@@ -65,7 +67,9 @@ export type PaystackSubaccountDto = {
     customer: string;
     split_code: string;
     metadata: {
-      orderRef: string
+      orderRef: string,
+      splitCode: string,
+      paystackFee: number;
     }
   };
 
